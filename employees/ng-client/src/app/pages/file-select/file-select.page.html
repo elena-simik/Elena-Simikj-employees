@@ -1,0 +1,10 @@
+<div class='row w-50 m-5'>
+  <select (change)="onSelect($event)">
+    <option>----------</option>
+    <option *ngFor='let document of documents' [value]='document.id'>{{document.name}}</option>
+  </select>
+</div>
+
+<div *ngIf='employeePairs' class='container'>
+  <employee-pair [employeePairs]='employeePairs'></employee-pair>
+</div>

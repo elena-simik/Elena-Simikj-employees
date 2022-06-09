@@ -1,0 +1,19 @@
+<div class='container'>
+  <form [formGroup]='formGroup' (ngSubmit)='onSubmit()'>
+    <div class='row m-2 w-50'>
+      <input type='file' multiple='false' formControlName='file' (change)='onFileChange($event)'>
+      <span *ngIf='!isValid("file")' class='text-danger'>This field is required.</span>
+    </div>
+    <div class='row m-2 w-50'>
+      Date Format: <input type='text' formControlName='dateFormat'>
+      <span *ngIf='!isValid("dateFormat")' class='text-danger'>This field is required.</span>
+    </div>
+    <div class='row m-2 w-50'>
+      <button type='submit' class='btn btn-success' [disabled]=formGroup.invalid>Submit</button>
+    </div>
+  </form>
+
+  <div *ngIf='employeePairs'>
+    <employee-pair [employeePairs]='employeePairs'></employee-pair>
+  </div>
+</div>

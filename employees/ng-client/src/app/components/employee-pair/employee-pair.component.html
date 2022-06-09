@@ -1,0 +1,16 @@
+<table class='table table-striped' *ngFor='let employeePair of employeePairs'>
+  <thead>
+  </thead>
+  <tbody>
+  <tr *ngFor='let projectEmployeePair of employeePair.employeeProjectPairs'>
+    <td>Employee ID 1: {{projectEmployeePair.employeePair.first}}</td>
+    <td>Employee ID 2: {{projectEmployeePair.employeePair.second}}</td>
+    <td>Project ID: {{projectEmployeePair.projectId}}</td>
+    <td>Days Worked: {{projectEmployeePair.daysWorked}}</td>
+  </tr>
+  <tr>
+    <td>Total days worked</td>
+    <td colspan='3'>{{employeePair.totalDaysWorked}}</td>
+  </tr>
+  </tbody>
+</table>
