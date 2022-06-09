@@ -1,0 +1,24 @@
+project(":employee:employee-core") {
+    dependencies {
+    }
+}
+
+project(":employee:employee-web-base") {
+    dependencies {
+    }
+}
+
+project(":employee:employee-web") {
+    dependencies {
+        implementation(project(":employee:employee-web-base"))
+        implementation(project(":employee:employee-core"))
+    }
+}
+
+project(":employee:employee-api") {
+    dependencies {
+        implementation(project(":employee:employee-web-base"))
+        runtimeOnly(project(":employee:employee-web"))
+    }
+
+}

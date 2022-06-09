@@ -1,0 +1,8 @@
+project(":employee-main") {
+    dependencies {
+        implementation(project(":employee:employee-api"))
+        implementation 'org.flywaydb:flyway-core'
+        implementation 'org.springframework.boot:spring-boot-starter'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+}

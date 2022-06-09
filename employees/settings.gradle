@@ -1,0 +1,13 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://repo.spring.io/milestone' }
+        maven { url 'https://repo.spring.io/snapshot' }
+        gradlePluginPortal()
+    }
+}
+rootProject.name = 'employees'
+include  ":employee:employee-core"
+include ":employee:employee-web-base"
+include ":employee:employee-web"
+include ":employee:employee-api"
+include ":employee-main"

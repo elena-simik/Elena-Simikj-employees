@@ -1,0 +1,48 @@
+plugins {
+    id 'org.springframework.boot' version '3.0.0-SNAPSHOT'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+allprojects {
+    apply {
+        plugin('org.springframework.boot')
+        plugin('io.spring.dependency-management')
+        plugin('java')
+    }
+
+    group = 'com.sirma'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '17'
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://repo.spring.io/milestone' }
+        maven { url 'https://repo.spring.io/snapshot' }
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.flywaydb:flyway-core'
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        runtimeOnly 'org.postgresql:postgresql'
+    }
+
+    if (it.name != 'rfw-main') {
+        bootJar {
+            enabled = false
+        }
+
+        jar {
+            enabled = true
+        }
+    }
+
+}
+
+dependencies {
+    implementation(project(":employee-main"))
+}
